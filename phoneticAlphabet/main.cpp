@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
 #include <random>
 
 using namespace std;
@@ -46,38 +47,78 @@ const string& randomWord() {
 }
 //-------------------------------------------------------------------------------------------------------------------------
 
+//-------------------------------------------------------------------------------------------------------------------------
+//LICENSE
+//-------------------------------------------------------------------------------------------------------------------------
+void printLicense() {
+cout << R"(MIT License
+
+Copyright (c) 2025 Jiorgose
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+)" << endl;
+}
+
+//-------------------------------------------------------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------------------------------------------------------
 //MAIN
 //-------------------------------------------------------------------------------------------------------------------------
 int main() {
-  cout << "Welcome to the phonetic alphabet practice tool." << endl;
-  cout << "In order to exit the tool, enter 'LEAVE'." << endl;
-  cout << "The tool is going to provide you with a word." << endl;
+  printLicense();
+  cout << "\nPress Enter to continue..." << endl;
+  cin.get();
+
+  cout << "\nWelcome to the phonetic alphabet practice tool." << endl;
+  cout << "In order to exit the tool, enter 'leave'." << endl;
+  cout << "\nThe tool is going to provide you with a word." << endl;
   cout << "For each letter of the word, enter the phonetic alphabet letter and enter." << endl;
   bool running = true;
 
   while (running) {
+    bool correct = true;
     string word = randomWord();
 
     cout << "\nCurrent word: " << word << endl;
 
     for (char letter : word) {
+      cout << "\nCurrent letter: " << letter << endl;
+
       string input;
       cin >> input;
+      transform(input.begin(), input.end(), input.begin(), ::tolower);
 
-      if (input == "LEAVE") { running = false; break; }
+      if (input == "leave") { running = false; break; }
 
       if (input == phoneticAlphabet[letter]) {
         continue;
       }
       else {
-        cout << "\nYour answer is wrong, this was the right answer: " << endl;
+        cout << "\nYour answer is wrong, this was the correct answer: " << endl;
         cout << phoneticAlphabet[letter] << endl;
-        cout << "retry" << endl;
+        cout << "\nretry." << endl;
+        correct = false;
         break;
       }
     }
+
+    if (correct) { cout << "\nCorrect!" << endl; }
   }
 }
 //-------------------------------------------------------------------------------------------------------------------------
