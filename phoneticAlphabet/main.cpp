@@ -33,13 +33,11 @@ vector<string> wordList = {
   "type", "typecast", "unaided", "unruly", "upbeat", "virtual", "visual", "voluntarily", "warm", "walnut", "way", "weed", "weapon", "well", "whiskey", "whisk", "wind", "wiper",
   "work", "wrapper", "xylophone", "yodel", "zippy", "zodiac", "zoom", "prompt", "google", "ISS", "family", "someone", "hygiene", "food", "fire", "mad", "mould", "micro", "macro", "verb", "soy",
   "spacewalk", "zone", "specific", "sports", "spoof", "service", "animal", "shrank", "swoon", "cozy", "pile", "of", "dogs", "in", "my", "basement", "with", "little", "warmth", "netherlands", "sweep",
-  "hello"
+  "hello", "alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo", "sierra", "tango",
+  "uniform", "victor", "x-ray", "yankee", "zulu", "advice", "new", "cpp", "csharp", "python", "please", "help", "nobody", "uses", "anymore", "had", "year", "classes", "dictionary",
+  "easy", "it", "is", "geometry", "dash", "can", "not", "one", "to", "do", "yeah", "I", "just", "checked", "into", "which", "wrote", "script", "language", "and", "compiler",
+  "compile", "for", "map", "trigger", "use", "stack", "heap", "memory", "managment", "godot", "unity", "unreal", "engine", "least", "at",
 };
-/*
-vector<string> wordList = {
-  "minawan", "cerber", "cute", "goosewan", "wan", "wanwan"
-};
-*/
 //-------------------------------------------------------------------------------------------------------------------------
 
 
