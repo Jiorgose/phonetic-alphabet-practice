@@ -1,0 +1,23 @@
+{
+  "version": 4,
+  "configurePresets": [
+    {
+      "name": "win",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/win",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "USE_OPENGL_API": "OFF",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "win",
+      "configurePreset": "win"
+    }
+  ]
+}
