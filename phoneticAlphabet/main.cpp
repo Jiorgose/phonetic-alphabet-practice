@@ -31,8 +31,15 @@ vector<string> wordList = {
   "mention", "pagan", "paper", "parson", "past", "payee", "peddling", "performer", "pest", "postal", "prefix", "put", "quit", "quitance", "quotient", "rate", "razor", "recognition", "resurgence",
   "ringside", "runway", "say", "scream", "scrupulosity", "senior", "sloping", "slide", "sorry", "speculum", "talk", "talkative", "thing", "thug", "tosh", "torch", "translation", "trammel", "turn",
   "type", "typecast", "unaided", "unruly", "upbeat", "virtual", "visual", "voluntarily", "warm", "walnut", "way", "weed", "weapon", "well", "whiskey", "whisk", "wind", "wiper",
-  "work", "wrapper", "xylophone", "yodel", "zippy", "zodiac", "zoom"
+  "work", "wrapper", "xylophone", "yodel", "zippy", "zodiac", "zoom", "prompt", "google", "ISS", "family", "someone", "hygiene", "food", "fire", "mad", "mould", "micro", "macro", "verb", "soy",
+  "spacewalk", "zone", "specific", "sports", "spoof", "service", "animal", "shrank", "swoon", "cozy", "pile", "of", "dogs", "in", "my", "basement", "with", "little", "warmth", "netherlands", "sweep",
+  "hello"
 };
+/*
+vector<string> wordList = {
+  "minawan", "cerber", "cute", "goosewan", "wan", "wanwan"
+};
+*/
 //-------------------------------------------------------------------------------------------------------------------------
 
 
@@ -89,6 +96,7 @@ int main() {
   cout << "In order to exit the tool, enter 'leave'." << endl;
   cout << "\nThe tool is going to provide you with a word." << endl;
   cout << "For each letter of the word, enter the phonetic alphabet letter and enter." << endl;
+
   bool running = true;
 
   while (running) {
@@ -106,7 +114,7 @@ int main() {
 
       if (input == "leave") { running = false; break; }
 
-      if (input == phoneticAlphabet[letter]) {
+      if (input == phoneticAlphabet[tolower(letter)]) {
         continue;
       }
       else {
