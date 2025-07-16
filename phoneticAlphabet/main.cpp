@@ -4,11 +4,13 @@
 #include <vector>
 #include <random>
 
+using namespace std;
+
 
 //-------------------------------------------------------------------------------------------------------------------------
 //TABLES
 //-------------------------------------------------------------------------------------------------------------------------
-std::map<char, std::string> phoneticAlphabet = {
+map<char, string> phoneticAlphabet = {
   {'a', "alpha"},   {'b', "bravo"},    {'c', "charlie"},
   {'d', "delta"},   {'e', "echo"},     {'f', "foxtrot"},
   {'g', "golf"},    {'h', "hotel"},    {'i', "india"},
@@ -20,7 +22,7 @@ std::map<char, std::string> phoneticAlphabet = {
   {'y', "yankee"},  {'z', "zulu"}
 };
 
-std::vector<std::string> wordList = {
+vector<string> wordList = {
   "adaptive", "apollo", "astronaut", "balance", "break", "braille", "brisk", "bribery", "brisket", "bunk", "close", "coach", "contamination", "convent", "deal", "deceive", "defile",
   "deliberate", "demonetize", "dependence", "despot", "emerge", "endurance", "excursion", "exit", "extent", "fluid", "foot", "form", "frequency", "fugue", "gentle",
   "get", "go", "gracious", "greece", "germany", "growing", "guy", "hand", "honey", "honesty", "horn", "hunch", "improve", "inclusive", "injection", "instance",
@@ -36,10 +38,10 @@ std::vector<std::string> wordList = {
 //-------------------------------------------------------------------------------------------------------------------------
 //FUNCTIONS
 //-------------------------------------------------------------------------------------------------------------------------
-std::mt19937 rng(std::random_device{}());
-std::uniform_int_distribution<std::size_t> dist(0, wordList.size() - 1);
+mt19937 rng(random_device{}());
+uniform_int_distribution<size_t> dist(0, wordList.size() - 1);
 
-const std::string& randomWord() {
+const string& randomWord() {
     return wordList[dist(rng)];
 }
 //-------------------------------------------------------------------------------------------------------------------------
@@ -49,10 +51,33 @@ const std::string& randomWord() {
 //MAIN
 //-------------------------------------------------------------------------------------------------------------------------
 int main() {
-  for (int i = 0; i < 10; i++) {
-    std::cout << randomWord() << std::endl;
-  }
+  cout << "Welcome to the phonetic alphabet practice tool." << endl;
+  cout << "In order to exit the tool, enter 'LEAVE'." << endl;
+  cout << "The tool is going to provide you with a word." << endl;
+  cout << "For each letter of the word, enter the phonetic alphabet letter and enter." << endl;
+  bool running = true;
 
-  std::cin.get();
+  while (running) {
+    string word = randomWord();
+
+    cout << "\nCurrent word: " << word << endl;
+
+    for (char letter : word) {
+      string input;
+      cin >> input;
+
+      if (input == "LEAVE") { running = false; break; }
+
+      if (input == phoneticAlphabet[letter]) {
+        continue;
+      }
+      else {
+        cout << "\nYour answer is wrong, this was the right answer: " << endl;
+        cout << phoneticAlphabet[letter] << endl;
+        cout << "retry" << endl;
+        break;
+      }
+    }
+  }
 }
 //-------------------------------------------------------------------------------------------------------------------------
